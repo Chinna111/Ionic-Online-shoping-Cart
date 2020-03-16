@@ -1,0 +1,77 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-tabs>  
+      <ion-tab-bar slot="top" color="success">  
+        <ion-tab-button (click)="openHome()">  
+          <ion-label><h2><b>Home</b></h2></ion-label>  
+        </ion-tab-button>  
+          
+        <ion-tab-button (click)="openPhone()">  
+          <ion-label><h2><b>Phone</b></h2></ion-label>  
+        </ion-tab-button>  
+          
+        <ion-tab-button (click)="openComputer()">  
+          <ion-label><h2><b>Computer</b></h2></ion-label>  
+        </ion-tab-button>  
+      </ion-tab-bar>  
+    </ion-tabs> 
+  </ion-toolbar>
+  
+</ion-header>
+ 
+
+<ion-content>
+  <div *ngFor="let cat of items" class="category-block">
+ 
+    
+    <div *ngFor="let product of cat.products">
+      <div *ngIf="cat.expanded">
+       
+          <ion-row>
+            
+            <ion-col size=2></ion-col>
+            <ion-col size=6>
+              <img src="../assets/images/a1.jpeg">
+            </ion-col>
+            <ion-col size=3>
+              {{ product.name }} - ${{ product.price }}
+              <ion-button expand="full" (click)="addToCart(product)">Add to Cart</ion-button>
+            </ion-col>
+            <ion-col size=1></ion-col>
+          </ion-row>
+
+      </div>
+    </div>
+    
+ 
+      <div *ngFor="let product of cat.products">
+        <div *ngIf="cat.expanded">
+         
+            <ion-row>
+              
+              <ion-col size=2></ion-col>
+              <ion-col size=6>
+                <img src="../assets/images/a2.png">
+              </ion-col>
+              <ion-col size=3>
+                {{ product.name }} - ${{ product.price }}
+                <ion-button expand="full" (click)="addToCart(product)">Add to Cart</ion-button>
+              </ion-col>
+              <ion-col size=1></ion-col>
+            </ion-row>
+        </div>
+      </div>
+  </div>
+  
+</ion-content>
+<div class="bar bar-footer bar-balanced" style="background-color: rgb(177, 187, 187); height: 100px;">
+  <div class="title"></div><br><br><br>
+  <ion-row> 
+    <ion-col size=3>Number Of Item selected {{ cart.length }}</ion-col>
+    <ion-col size=1></ion-col>
+    <ion-col size=6><ion-button (click)="openCart()">View Cart
+    </ion-button></ion-col>
+    <ion-col size=1></ion-col>
+  </ion-row>
+  
+</div>

@@ -1,0 +1,93 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-tabs>  
+      <ion-tab-bar slot="top" color="light">  
+        <ion-tab-button tab="Home">  
+          <ion-label><h2><b>Home</b></h2></ion-label>  
+        </ion-tab-button>  
+          
+        <ion-tab-button tab="Contact Us">  
+          <ion-label><h2><b>Contact Us</b></h2></ion-label>  
+        </ion-tab-button>  
+          
+        <ion-tab-button tab="Career">  
+          <ion-label><h2><b>Career</b></h2></ion-label>  
+        </ion-tab-button>  
+      </ion-tab-bar>  
+    </ion-tabs> 
+  </ion-toolbar>
+  
+</ion-header>
+<br/>
+
+
+<ion-content > 
+  
+    <ion-row overflow-scroll='false'>
+      <ion-col size="1">
+        <span class="slider-nav arrow-prev"
+          (click)="slidePrev(sliderOne,slideWithNav)">
+          <div class="prev-icon-custom custon-nav"
+            [class.disabled]="sliderOne.isBeginningSlide"></div>
+        </span>
+      </ion-col>
+      <ion-col size="10">
+ 
+        <ion-slides pager="true" [options]="slideOptsOne" #slideWithNav
+          (ionSlideDidChange)="SlideDidChange(sliderOne,slideWithNav)">
+          <ion-slide *ngFor="let s of sliderOne.slidesItems">
+            <img src="../assets/images/{{s.id}}.jpg">
+          </ion-slide>
+        </ion-slides>
+ 
+      </ion-col>
+      <ion-col size="1">
+        <span class="slider-nav arrow-next"
+          (click)="slideNext(sliderOne,slideWithNav)">
+          <div class="next-icon-custom custon-nav"
+            [class.disabled]="sliderOne.isEndSlide"></div>
+        </span>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size=1></ion-col>
+        <ion-col size=9><p>Buy electronics online at best prices in India. Shop from a huge range of electronic products such as TVs, laptops, cameras, video games & more at our online ...</p>
+
+        </ion-col>
+      
+    </ion-row>
+
+  <ion-grid>
+      <ion-row class='a'>
+        <ion-col size=1></ion-col>
+        <ion-col size=10><button (click)="nextpage()">
+          <img src="../assets/images/aa.jpg">
+          <ion-label color='black'><ion-button shape="round" color="warning">Explore</ion-button></ion-label>
+        </button>
+        </ion-col>
+      </ion-row>
+  </ion-grid><br><br>
+
+  <ion-grid>
+      <ion-row>
+        <ion-col size=1></ion-col>
+        <ion-col size=10><button (click)="news()">
+          <img src="../assets/images/a1.jpg"><ion-button shape="round" color="warning">Explore</ion-button></button>
+        </ion-col>
+      </ion-row>
+  </ion-grid><br><br>
+
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size=1></ion-col>
+      <ion-col size=10><button (click)="computer()">
+        <img src="../assets/images/a2.jpg"><ion-button shape="round" color="warning">Explore</ion-button></button>
+      </ion-col>
+    </ion-row>
+</ion-grid><br><br>
+  <div class="bar bar-footer bar-balanced" style="background-color: rgb(177, 187, 187); height: 150px;">
+    <div class="title"></div>
+  </div>
+
+</ion-content>
